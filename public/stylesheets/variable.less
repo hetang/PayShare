@@ -1,0 +1,103 @@
+@baseFont: 0.625em;
+@headerFont: 1rem;
+@colFont: 0.8rem;
+@buttonFont: 1rem;
+@fontFamily: Helvetica Neue, Helvetica, Arial;
+
+@fontBaseColor: #fff;
+@headerColor: #41331F;
+@footerColor: #41331F;
+@bodyColor: #F0E9E2;
+@buttonTextColor: #444444;
+@buttonStartColor: #fff;
+@buttonEndColor: #C1C1C1;
+@buttonTopLeftColor: #D2D1CD;
+@buttonBottomRightColor: #989491;
+@bodyBorderColor: #000;
+@sndMnyBodyColor: #FAF9F5;
+@checkTextColor: #B99458;
+@trxnEvenRowColor: #E4D8CA;
+@trxnOddRowColor: #E4D8CA;
+
+.linear-gradient(@startColor: #fefefe, @endColor: #fafafa) {
+	background: @startColor;
+	background: -moz-linear-gradient(top,@startColor  0%,@endColor 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(100%,@endColor));
+	background: -webkit-linear-gradient(top,  @startColor 0%,@endColor 100%);
+	background: -o-linear-gradient(top,  @startColor 0%,@endColor 100%);
+	background: -ms-linear-gradient(top,  @startColor 0%,@endColor 100%);
+	background: linear-gradient(to bottom,  @startColor 0%,@endColor 100%);
+}
+
+.box-sizing(@boxSizing: border-box) {
+	-moz-box-sizing: @boxSizing; 
+	-webkit-box-sizing: @boxSizing; 
+	box-sizing:@boxSizing;
+	-o-box-sizing: @boxSizing;
+	-ms-box-sizing:	@boxSizing;
+}
+
+.opacity-easeout-transition(@time: 0.3s) {
+	-webkit-transition: opacity @time ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: opacity @time ease-out;  /* Firefox 4-15 */
+       -o-transition: opacity @time ease-out;  /* Opera 10.50-12.00 */
+          transition: opacity @time ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+.opacity(@val: 0.5) {	
+	-moz-opacity: @val;
+	-khtml-opacity: @val;
+	opacity: @val;
+}
+
+.apperance(@style: none) {
+    -webkit-appearance: @style;
+    -moz-appearance:    @style;
+    appearance:         @style;
+}
+
+.border-radius(@val: 5px) {
+    -webkit-border-radius: @val; 
+    -moz-border-radius: @val;
+    border-radius: @val;
+}
+
+.animation(@animationName, @duration, @animationTimingFunction, @animationDirection) {
+	-webkit-animation: @animationName @duration @animationTimingFunction @animationDirection; /* Safari 4+ */
+  	-moz-animation:    @animationName @duration @animationTimingFunction @animationDirection; /* Fx 5+ */
+  	-o-animation:      @animationName @duration @animationTimingFunction @animationDirection; /* Opera 12+ */
+  	animation:         @animationName @duration @animationTimingFunction @animationDirection; /* IE 10+ */
+}
+
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-moz-keyframes rotate {
+	from {
+		-moz-transform:rotate(0deg);
+	}
+	to {
+		-moz-transform:rotate(360deg);
+	}
+}
+@-o-keyframes rotate {
+	from {
+		-o-transform:rotate(0deg);
+	}
+	to {
+		-o-transform:rotate(360deg);
+	}
+}
+@keyframes rotate {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}

@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<title>Pay with PayPal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="cache-control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/payshare.css">
+	</head>
+	<body>
+		<div id="mainContainer">
+			<div id="home" class="home">
+				<div class="header">
+					<h2>What are we doing?</h2>
+				</div>
+				<div class="body">
+					<div class="buttons">
+						<a href="javascript:void(0);" id="sndMny" class="button">Send Money</a>
+						<a href="javascript:void(0);" id="vwTrx" class="button">View Transaction History</a>
+					</div>
+				</div>
+				<div class="footer">
+				</div>
+			</div>
+			<div id="sndMnyDiv" class="sndMny hidden visuallyhidden">
+				<div class="header">
+					<h2>Send Money</h2>
+				</div>
+				<div class="body">
+					<div id="sndMnyBdy" class="sndMnyBdy">
+						<form id="mnyTrsfr" action="/transfer" method="POST" onsubmit="">
+							<ul class="list listMidle">
+								<li class="block">
+									<ul class="list inline">
+										<li class="label left mail"><label for="sndrMail">To:</label></li>
+										<li class="right mail"><input type="email" id="sndrMail" name="sndrMail"/></li>
+									</ul>
+								</li>
+								<li class="block">
+									<ul class="list inline">
+										<li class="label left"><label for="amount">Amount:</label></li>
+										<li class="rightCol selectLi">
+											<select id="currency" name="currency">
+											  <option value="AUD" data-symbol="A&#x24;">AUD</option>
+											  <option value="CAD" data-symbol="C&#x24;">CAD</option>
+											  <option value="EUR" data-symbol="&#x80;">EUR</option>
+											  <option value="HKD" data-symbol="HK&#x24;">HKD</option>
+											  <option value="JPY" data-symbol="&#xa5;">JPY</option>
+											  <option value="USD" SELECTED="YES"  data-symbol="&amp;#x24;">USD</option>
+											</select>
+										</li>
+										<li class="right"><span id="symbol" class="symbol"></span><input type="number" class="amount" id="amount" name="amount"/></li>
+									</ul>
+								</li>
+								<li class="block">
+									<ul class="list">
+										<li class="label left"><label for="msg">Message (optional):</label></li>
+										<li class="right"><textarea id="msg" name="msg"></textarea></li>
+									</ul>
+								</li>
+							</ul>
+							<input type="hidden" name="srvTyp" id="srvTyp" value="0" />
+						</form>
+						<div id="srvTypDiv" class="trxType">
+							<div class="subHeader label">
+								What's this payment for?
+							</div>
+							<div id="option" class="subBody label block">
+								<a href="javascript:void(0)" class="selected check" data-value="0">I'm sending money to family or friends</a>
+								<a href="javascript:void(0)" class="check" data-value="1">I'm paying for goods service</a>
+							</div>
+						</div>
+					</div>
+					<div id="msgDiv" class="msgParent hidden">
+						<span class="msg"><span id="msgText" class="msgText"></span><span id="mark"></span></span>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="buttons">
+						<div id="transferBtns">
+							<a href="javascript:void(0);" id="clearForm" class="button">Clear</a>
+							<a href="javascript:void(0);" id="nextStep" class="button">Next</a>
+						</div>
+						<div id="homeBtns" class="homeBtns hidden">
+							<a href="javascript:void(0);" id="sndMnyInline" class="button">Send Money</a>
+							<a href="javascript:void(0);" id="vwTrxInline" class="vwTrxInline button">Transaction History</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="trxHstryDiv" class="trxHstry hidden visuallyhidden">
+				<div class="header">
+					<h2>Transaction History</h2>
+				</div>
+				<div class="body">
+					<div id="TrxnTable"></div>
+					<div id="loadmore" class="spinnerWrapper hidden">
+						<div class="inlineSpinner"></div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="buttons">
+						<a href="javascript:history.go(-1);" class="button">Back</a>
+					</div>
+				</div>
+			</div>
+			<div class="maskDv hidden" id="maskId">
+	            <div id="throId" class="tbrDivCat">
+	                <div id="spinnerMsk" class="fullSpinner hidden">
+	                    <img src="http://ir.ebaystatic.com/f/w2dq3gn2qa44tbiqblv00pgtpeu.png" width="40px" height="40px">
+	                </div>
+	            </div>
+	        </div>
+		</div>
+		<script id="payHistory" type="text/x-handlebars-template">
+			{{#each data}}
+				<div class="row">
+					<div class="col1">
+						{{date}}
+					 </div>
+					 <div class="col3">
+						{{{amount}}}
+					 </div>
+					 <div class="col2">
+						{{name}}
+					 </div>
+				</div>
+			{{/each}}
+		</script>
+
+		<script type="text/javascript" src="/javascripts/handlebars-v2.0.0.js" /></script>
+		<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/javascripts/payshare.min.js"></script>
+	</body>
+</html>

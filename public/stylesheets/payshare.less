@@ -1,0 +1,433 @@
+@import "variable.less";
+
+.buttonClass() {
+    .linear-gradient(@buttonStartColor, @buttonEndColor);
+    display:block;
+    padding: 20px;
+    margin: 100px 10%;
+    .border-radius(5px);
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    font-size: @buttonFont;
+    color: @buttonTextColor;
+    font-weight: bold;
+    border-top: 1px solid @buttonTopLeftColor;
+    border-left: 1px solid @buttonTopLeftColor;
+    border-right: 1px solid @buttonBottomRightColor;
+    border-bottom: 1px solid @buttonBottomRightColor;
+}
+
+.spinner() {
+    height:40px;
+	background-repeat:no-repeat; 
+	width:40px;
+	.animation(rotate, 1.5s, infinite, linear);
+    background-size: auto 40px;
+}
+
+body {
+    color: @fontBaseColor;
+    font-family: @fontFamily;
+    font-size: @baseFont;
+    margin: 0;
+    padding: 0;
+    border: 1px solid @bodyBorderColor;
+}
+
+.header {
+    background-color:@headerColor;
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    font-size: @headerFont;
+    border-bottom: 1px solid @bodyBorderColor;
+    width: 100%;
+    display: table;
+    .box-sizing();
+    
+    h2 {
+        height: 40px;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        width: 100%;
+    }
+}
+
+.footer {
+    min-height: 40px;
+    background-color:@headerColor;
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    border-top: 1px solid @bodyBorderColor;
+}
+
+.body {
+    background-color: @bodyColor;
+    display:table;
+    .box-sizing();
+    width: 100%;
+}
+
+.button {
+    .buttonClass();
+}
+
+.error {
+    border: 1px solid red !important;
+    outline: none;
+    -webkit-tap-highlight-color: red;
+}
+
+.home {
+    transition: all 0.2s linear;
+    .body {
+        .buttons {
+            display:table-cell;
+            vertical-align: middle;
+            margin: 10% auto;
+        }
+    }
+}
+
+.sndMny {
+    transition: all 0.2s linear;
+    .body {
+        .sndMnyBdy {
+            width: 100%;
+            height: 100%;
+            margin:20px auto;
+            font-size: @headerFont;
+            
+            .listMidle {
+                margin:0px;
+                padding:0px;
+            }
+            
+            .list {
+                li {
+                    list-style-type: none;
+                    input, textarea, select {
+                        background-color: @sndMnyBodyColor;
+                        .apperance();
+                        border: 1px solid @bodyBorderColor;
+                        width: 100%;
+                    }
+                    
+                    input {
+                        height: 30px;
+                        border: none;
+                        width:100%;
+                    }
+                    
+                    textarea {
+                        height: 100px;
+                        border: none;
+                    }
+                    
+                    select {
+                        height: 30px;
+                        text-align: center;
+                        vertical-align: middle;
+                        padding: 0px 22px 0px 5px;
+                        overflow: hidden;
+                        .border-radius(5px);
+                    }
+                    
+                    .selectLi:after {
+                        content: "";
+                        display: block;
+                        float: right;
+                        width: 10px;
+                        height: 9px;
+                        background: url("http://ir.ebaystatic.com/rs/v/w2xs4ib01u3o3kmxc5jgcrejkav.png") no-repeat scroll right @sndMnyBodyColor;
+                        position: absolute;
+                        top: 13px;
+                        right: 10px;
+                        background-position-x: -252px;
+                        background-size: auto 22px;
+                    }
+                }
+            }
+            .inline {
+                .rightCol {
+                    display: inline-block;
+                    width: 90px;
+                    float:right;
+                    position:relative;
+                }
+                
+                .left {
+                    display:inline-block;
+                    float:left;
+                    width: 60px;
+                    
+                    &.mail {
+                        width: 25px;
+                    }
+                }
+                
+                .right {
+                    display: block;
+                    margin-left: 65px;
+                    margin-right: 95px;
+                    &.mail {
+                        margin-left: 30px;
+                        margin-right:0px;
+                    }
+                    
+                    .symbol {
+                        color: @headerColor;
+                        padding: 5px 5px 5px 0px;
+                        vertical-align:middle;
+                        display: inline-block;
+                    }
+                    
+                    .amount {
+                        width: 60%;
+                    }
+                }
+            }
+            
+            .block {
+                display: block;
+                .border-radius(10px);
+                border: 1px solid  @headerColor;
+                background-color: @sndMnyBodyColor;
+                margin: 20px;
+                
+                .list {
+                    padding: 10px;
+                }
+            }
+            
+            .label {
+                color: @headerColor;
+                vertical-align: middle;
+                padding: 5px 0px;
+            }
+            
+            .trxType {
+                margin: 0px 20px;
+                .subHeader {
+                    
+                }
+                
+                .subBody {
+                    margin: 10px 0px;
+                    
+                    .check {
+                        padding: 10px;
+                        display:block;
+                        text-decoration:none;
+                        color: @headerColor;
+                        &.selected {
+                            padding-right: 50px;
+                            color: @checkTextColor;
+                            position:relative;
+                        }
+                        
+                        &.selected:after {
+                            content: "";
+                            display: block;
+                            float: right;
+                            width: 20px;
+                            height: 20px;
+                            background: url("http://ir.ebaystatic.com/f/ezqgrgh5sqz3javl4fbw2wdifmj.png") no-repeat scroll right @sndMnyBodyColor;
+                            position: absolute;
+                            top: 9px;
+                            right: 16px;
+                            background-position: -432px 0;
+                            background-size: auto 18px;
+                        }
+                    }
+                    
+                    .check:first-child {
+                        border-bottom: 1px solid @headerColor;
+                    }
+                }
+            }
+        }
+        
+        .msgParent {
+            display:table;
+            width: 100%;
+            height: 100%;
+            
+            .msg {
+                display:table-cell;
+                width:100%;
+                height: 100%;
+                vertical-align:middle;
+                text-align: center;
+                color: @headerColor;
+                
+                .msgText {
+                    display: block;
+                    font-size: @headerFont;
+                }
+            }
+            
+            .sucessMark {
+                display: inline-block;
+                width: 50px;
+                height: 40px;
+                background: url("http://ir.ebaystatic.com/f/ezqgrgh5sqz3javl4fbw2wdifmj.png") no-repeat scroll right @bodyColor;
+                background-position: -959px 0;
+                background-size: auto 40px;
+                margin-top: 20px;
+            }
+            
+            .failureMark {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background: url("http://ir.ebaystatic.com/f/ezqgrgh5sqz3javl4fbw2wdifmj.png") no-repeat scroll right @bodyColor;
+                background-position: -1755px 0;
+                background-size: auto 40px;
+                margin-top: 20px;
+            }
+        }
+    }
+    
+    .footer {
+        padding:0px;
+        .buttons {
+            text-align: center;
+            .button {
+                display:inline-block;
+                width: 100px;
+                margin:10px 15px;
+                padding: 10px;
+            }
+        }
+        
+        .homeBtns {
+            .button {
+                margin: 10px 5px;
+            }
+            .vwTrxInline {
+                width: 150px;
+            }
+        }
+    }
+}
+
+.trxHstry {
+    .body {
+        #TrxnTable {
+            width:100%;
+            height: 100%;
+        }
+        .row {
+            display: block;
+            width: 100%;
+            padding: 10px 0px;
+            font-size: @colFont;
+            color: @headerColor;
+            
+            .col1 {
+                float: left;
+                width: 33%;
+                text-align:center;
+                vertical-align: middle;
+            }
+            
+            .col2 {
+                display: inline-block;
+                width: 33%;
+                text-align:center;
+                vertical-align: middle;
+            }
+            
+            .col3 {
+                float: right;
+                width: 33%;
+                text-align:center;
+                vertical-align: middle;
+            }
+        }
+        
+        .row:nth-child(odd) {
+            background-color: @trxnOddRowColor;
+        }
+        
+        .row:nth-child(even) {
+            background-color: @trxnEvenRowColor;
+        }
+    }
+    
+    .footer {
+        .buttons {
+            text-align: center;
+            .button {
+                margin:0px 10px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.spinnerWrapper {
+    margin: 20px 49%;
+    
+    .inlineSpinner {
+    	.spinner();
+    	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABQCAYAAABh05mTAAADiklEQVR42u3dwYncMBTG8ZSgDiJIAy5B24GPCbm4gQSXIEIKMCGQq08hkIvvIUQlqASXoA5evgle8IbdGT09e+WZfYffffljjZ5k8L4iokN589o6mCABrUTwYI72Nx8pnoER6IIETiM+HjECMbQa8WHAAYgpgdWIcAoBVGjUiLBsFlRKIwJCBCABpxE1okYURfz1+48FD2FlAHfUiM7dGehhgrAYoZNF5MczMAGdEaE50saCUB7ojATt7hFPYSABZepqjzjL0xeBMrHHJu4TOAMxNTWH7WXpElO/V8QBqECsdexDjBaoQAKb24bzFCagQq7GBcSycVAhv3XEFkhg2PIqjLETk0DcOqIXRgzPPbshggOS0Iga8TYjOmFEX+M4JowY9hhxZkFEWyniKIjY7RGxLww4CUJIIzaFAWcwex37AjNgAlMr4vrMzOT2PDsbRsh5feSrHHJgnFQ6ydmZu7TnM0/fkPEE1tit45mAE9gtb3E4u7ZfaRnxav5O9uAXHVjpfaICjagRNaLSiM8U8fuPn/YlB3r77r1lR0Q0BxMkoJUIHsyNR3MwQQJaieDBPBnxFAdGoAsSuBuMZ2AEuiCBeypiBGJobyxiBGJoH0REkAGIKYG9kYADEFMC+y/iKQRQofEWNg6gQuN9RA8kYK48ogcqdR8xCCO6K48YgATcakMp1l77hqIRDxBRl/MGy1k3FuHGoiPOBiOODtsbDNt67BMe+/QCQngBoVdhwqswvdnmR7X6ekDfsWhEjag04vVE/PL1mwO/0sKhR6APH/sGevCLDqw8Ij9eDzPQIxIMYA4Wz0EEesJUGpMbz0AAyjBDc5CAA1CGBN3eEQMQQwJTOaAHYnKsiMwlTAWmyr9/VGAGs0fEGaiQrRRxBCrBWdacXZgEfKWIJBC2juiFEUOl3ZgkNKJGBPCfPhtobiViK4w4MMI5mID+M4MHkxnRCCPGrSMaSIKILvOpG4EuSOAyQwZBRL/HiDMUBoyZT2AEYmgzIraFARPYPSKawlmxyQg4ADElsBkhJyCmfs9jX8Nc1l1GQAtUaMz8bYyMgIKPC/GeyOnSEoYmcxl7IAGz0Rk6gfAzV/yYFjyElQEcc4wJwoiOMfYY6GGCsBihO/bN9v4Ruxf/emCDiK1GlEfUL3kKNxb9MO8GI45+InqDYVs/Vi489uln84UXEPoPHDKvwhLQSsy4CqviL0SsWWU2r9XQAAAAAElFTkSuQmCC);
+    	height:20px;
+    	width:20px;
+        background-size: auto 20px;
+    }
+}
+
+.maskDv {
+    cursor: pointer;
+    position: fixed;
+    display: block;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-out;
+    -moz-transition: opacity .3s ease-out;
+    -o-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;
+    &.show {
+        z-index: 7;
+    }
+    
+    &.fadeIn {
+        opacity: 1.8;
+    }
+    
+    .tbrDivCat {
+        position: fixed;
+        top: 250px;
+        left: 45%;
+        z-index: 7;
+    }
+    
+    .fullSpinner {
+        .spinner();
+    }
+}
+
+.visuallyhidden {  
+  opacity: 0;  
+}
+
+.hidden {
+    display:none !important;
+}
+
+@media only screen and (min-width : 321px) {
+    .sndMny .body .sndMnyBdy .inline .right .amount {
+        width: 85%;
+    }
+}
